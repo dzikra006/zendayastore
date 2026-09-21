@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zendaya Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">Zendaya<span>Store</span></div>
+        <div class="nav-menu" id="nav-menu">
+            <a href="#home">Home</a>
+            <a href="#produk">Produk</a>
+            <a href="#kategori">Kategori</a>
+            <a href="#kontak">Kontak</a>
+        </div>
+
+        <div class="nav-icons">
+           <i class="fa-solid fa-magnifying-glass"></i> 
+           <i class="fa-solid fa-cart-shopping"></i>
+           <i class="fa-solid fa-ellipsis-vertical" id="menu-btn"></i>
+        </div>
+
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p class="small-title"> Belanja Lebih Mudah</p>
+            <h1> Produk Pilihan<br> Untuk Kamu</h1>
+            <p>
+              Temukan Berbagai produk berkualitas dengan harga terbaik hanya di <span>ZendayaStore</span> 
+            </p>
+            <button class="btn-primary" onclick="keProduk()">
+                Belanja Sekarang
+            </button>
+        </div>
+    </section>
+
+<section class="product-section" id="produk">
+    <aside class="product-sidebar">
+        <h3>Kategori</h3>
+        <div class="sidebar-category">
+            <button onclick="filterProduk('Semua')">
+                <span class="sidebar-icon">▦</span>
+                <span>Lainnya</span>
+            </button>
+            <button onclick="filterProduk('Fashion')">
+                <span class="sidebar-icon">♧</span>
+                <span>Fashion</span>
+            </button>
+            <button onclick="filterProduk('Sepatu')">
+                <span class="sidebar-icon">⌁</span>
+                <span>Sepatu</span>
+            </button>
+            <button onclick="filterProduk('Tas')">
+                <span class="sidebar-icon">▢</span>
+                <span>Tas</span>
+            </button>
+            <button onclick="filterProduk('Kecantikan')">
+                <span class="sidebar-icon">♙</span>
+                <span>Kecantikan</span>
+            </button>
+            <button onclick="filterProduk('Elektronik')">
+                <span class="sidebar-icon">▯</span>
+                <span>Elektronik</span>
+            </button>
+            <button onclick="filterProduk('Rumah & Dapur')">
+                <span class="sidebar-icon">⌂</span>
+                <span>Rumah & Dapur</span>
+            </button>
+        </div>
+        <div class="price-filter">
+            <h3>Harga</h3>
+            <label>
+                <input
+                    type="checkbox"
+                    value="0-100000"
+                    onchange="filterHarga()">
+                Di bawah Rp100.000
+            </label>
+            <label>
+                <input
+                    type="checkbox"
+                    value="100000-200000"
+                    onchange="filterHarga()">
+                Rp100.000 - Rp200.000
+            </label>
+            <label>
+                <input
+                    type="checkbox"
+                    value="200000-300000"
+                    onchange="filterHarga()">
+                Rp200.000 - Rp300.000
+            </label>
+            <label>
+                <input
+                    type="checkbox"
+                    value="300000-500000"
+                    onchange="filterHarga()">
+                Rp300.000 - Rp500.000
+            </label>
+           <label>
+                <input
+                    type="checkbox"
+                    value="500000"
+                    onchange="filterHarga()">
+                Di atas Rp500.000
+            </label>
+        </div>
+    </aside>
+    <div class="product-content">
+        <div class="product-heading">
+            <h2>Semua Produk</h2>
+            <p id="jumlahProduk">
+                Menampilkan semua produk
+            </p>
+        </div>
+        <div class="product-grid">
+            <div class="product-card-new" data-category="Fashion" data-price="155000">
+                <div class="product-image-box">
+                    <img
+                        src="img/jaket.jpeg"
+                        alt="Jaket Corduroy">
+                </div>
+                <div class="product-detail">
+                    <h3>
+                        Jaket Corduroy
+                    </h3>
+                    <p class="product-price-new">
+                        Rp. 155.000
+                    </p>
+                    <div class="product-buttons">
+                       <button
+                            class="btn-buy"
+                            onclick="beliProduk(
+                                'Jaket Corduroy',
+                                155000,
+                                'img/jaket.jpeg'
+                            )">
+                            Beli Sekarang
+                        </button>
+                        <button
+                            class="btn-cart"
+                            onclick="tambahKeranjang('Jaket Corduroy')">
+                            Keranjang 🛒
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card-new" data-category="Fashion" data-price="100000">
+                <div class="product-image-box">
+                    <img
+                        src="img/topi.jpeg"
+                        alt="Topi Adidas">
+                </div>
+                <div class="product-detail">
+                    <h3>
+                        Topi Sport
+                    </h3>
+                    <p class="product-price-new">
+                        Rp. 100.000
+                    </p>
+                    <div class="product-buttons">
+                        <button
+                            class="btn-buy"
+                            onclick="beliProduk(
+                                'Topi Adidas',
+                                100000,
+                                'img/topi.jpeg'
+                            )">
+                            Beli Sekarang
+                        </button>
+                        <button
+                            class="btn-cart"
+                            onclick="tambahKeranjang('Topi Adidas')">
+                            Keranjang 🛒
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card-new" data-category="Sepatu" data-price="325000">
+                <div class="product-image-box">
+                    <img
+                        src="img/sepatu.jpeg"
+                        alt="Sepatu Nike">
+                </div>
+                <div class="product-detail">
+                    <h3>
+                        Sepatu Sneakers
+                    </h3>
+                    <p class="product-price-new">
+                        Rp. 325.000
+                    </p>
+                    <div class="product-buttons">
+                        <button
+                            class="btn-buy"
+                            onclick="beliProduk(
+                                'Sepatu Nike',
+                                325000,
+                                'img/sepatu.jpeg'
+                            )">
+                            Beli Sekarang
+                        </button>
+                        <button
+                            class="btn-cart"
+                            onclick="tambahKeranjang('Sepatu Nike')">
+                            Keranjang 🛒
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card-new" data-category="Tas" data-price="150000">
+                <div class="product-image-box">
+                    <img
+                        src="img/tas.jpeg"
+                        alt="Tas Wanita">
+                </div>
+                <div class="product-detail">
+                    <h3>
+                        Handbag
+                    </h3>
+                    <p class="product-price-new">
+                        Rp. 150.000
+                    </p>
+                    <div class="product-buttons">
+                        <button
+                            class="btn-buy"
+                            onclick="beliProduk(
+                                'Tas Wanita',
+                                150000,
+                                'img/tas.jpeg'
+                            )">
+                            Beli Sekarang
+                        </button>
+                        <button
+                            class="btn-cart"
+                            onclick="tambahKeranjang('Tas Wanita')">
+                            Keranjang 🛒
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card-new" data-category="Fashion" data-price="120000">
+                <div class="product-image-box">
+                    <img
+                        src="img/baju.jpeg"
+                        alt="Jaket Jeans">
+                </div>
+                <div class="product-detail">
+                    <h3>
+                        Jaket Denim
+                    </h3>
+                    <p class="product-price-new">
+                        Rp. 120.000
+                    </p>
+                    <div class="product-buttons">
+                        <button
+                            class="btn-buy"
+                            onclick="beliProduk(
+                                'Jaket Jeans',
+                                120000,
+                                'img/baju.jpeg'
+                            )">
+                            Beli Sekarang
+                        </button>
+                        <button
+                            class="btn-cart"
+                            onclick="tambahKeranjang('Jaket Jeans')">
+                            Keranjang 🛒
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card-new" data-category="Kecantikan" data-price="240000">
+                <div class="product-image-box">
+                    <img
+                        src="img/cushion.jpeg"
+                        alt="Cushion Make Over">
+                </div>
+                <div class="product-detail">
+                    <h3>
+                        Cushion Make Over
+                    </h3>
+                    <p class="product-price-new">
+                        Rp. 240.000
+                    </p>
+                    <div class="product-buttons">
+                        <button
+                            class="btn-buy"
+                            onclick="beliProduk(
+                                'Cushion Make Over',
+                                240000,
+                                'img/cushion.jpeg'
+                            )">
+                            Beli Sekarang
+                        </button>
+                        <button
+                            class="btn-cart"
+                            onclick="tambahKeranjang('Cushion Make Over')">
+                            Keranjang 🛒
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+   <section class="section" id="transaksi">
+        <div class="section-title">
+            <h2>Transaksi</h2>
+            <p>
+                Lengkapi data pemesanan kamu
+            </p>
+        </div>
+        <div class="transaction-box">
+            <h2>
+                Detail Pesanan
+            </h2>
+            <div class="transaction-content">
+                <div class="selected-product">
+                    <img
+                        id="transactionImage"
+                        src=""
+                        alt="Produk yang dipilih">
+                    <h3 id="transactionProduct">
+                        Produk
+                    </h3>
+                    <p>
+                        Harga:
+                    </p>
+                    <p id="transactionPrice"class="selected-price">
+                        Rp0
+                    </p>
+                </div>
+                <!-- FORM TRANSAKSI -->
+                <div class="transaction-form">
+                    <div class="form-group">
+                        <label for="nama">
+                            Nama Lengkap
+                        </label>
+                        <input
+                            type="text"
+                            id="nama"
+                            placeholder="Masukkan nama kamu">
+                    </div>
+                    <div class="form-group">
+                        <label for="nomor">
+                            Nomor WhatsApp
+                        </label>
+                        <input
+                            type="tel"
+                            id="nomor"
+                            placeholder="085711904693">
+                    </div>
+                    <div class="form-group">
+                        <label for="alamat">
+                            Alamat
+                        </label>
+                        <textarea
+                            id="alamat"
+                            rows="4"
+                            placeholder="Masukkan alamat lengkap"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="jumlah">
+                            Jumlah Produk
+                        </label>
+                        <select id="jumlah">
+                            <option value="1">
+                                1
+                            </option>
+                            <option value="2">
+                                2
+                            </option>
+                            <option value="3">
+                                3
+                            </option>
+                            <option value="4">
+                                4
+                            </option>
+                            <option value="5">
+                                5
+                            </option>
+                        </select>
+                    </div>
+                    <div class="total">
+                        Total:
+                        <strong id="totalHarga">
+                            Rp0
+                        </strong>
+                    </div>
+                    <button class="whatsapp-button" onclick="kirimPesanan()">
+                         Pesan Sekarang via WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section" id="kontak">
+        <div class="contact-box">
+            <h2>
+                Kontak Kami
+            </h2>
+           <div class="form-group">
+                <label for="contactNama">
+                    Nama
+                </label>
+                <input
+                    type="text"
+                    id="contactNama"
+                    placeholder="Masukkan nama">
+            </div>
+            <div class="form-group">
+                <label for="contactEmail">
+                    Email
+                </label>
+                <input
+                    type="email"
+                    id="contactEmail"
+                    placeholder="Masukkan email">
+            </div>
+            <div class="form-group">
+                <label for="contactNomor">
+                    Nomor Telepon
+                </label>
+                <input
+                    type="tel"
+                    id="contactNomor"
+                    placeholder="Masukkan nomor telepon">
+            </div>
+            <div class="form-group">
+                <label for="contactPesan">
+                    Pesan
+                </label>
+                <textarea
+                    id="contactPesan"
+                    rows="5"
+                    placeholder="Tulis pesan kamu"></textarea>
+            </div>
+            <button  class="send-button" onclick="kirimPesan()">
+                Kirim Pesan
+            </button>
+        </div>
+    </section>
+
+    <footer>
+        <h3>
+            Zendaya <span>Store</span>
+        </h3>
+        <p>
+            Fashion pilihan untuk kebutuhan kamu.
+        </p>
+        <p class="copyright">
+            © 2026 Zendaya Store
+        </p>
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
